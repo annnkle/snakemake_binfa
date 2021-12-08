@@ -88,7 +88,7 @@ rule dada2_dereplicate_fastq:
 rule dada2_sample_inference:
 	input:
 	# Dereplicated (aka unique) sequences of the sample
-		derep=expand("uniques/{sample}.{orientation}.RDS", sample=SAMPLES, orientation=1)
+		derep=expand("uniques/{sample}.{orientation}.RDS", sample=SAMPLES, orientation=1),
 		err="results/dada2/model_{orientation}.RDS" # Error model
 	output:
 		"denoised/{sample}.{orientation}.RDS" # Inferred sample composition
